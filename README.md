@@ -6,5 +6,5 @@ This project is React sample, I try to show a list of product. It is connected t
 This project uses Graphql and Redux for keeping data in memory
 
 ## Backend
-for backend please see this project on my github
+For backend, see this project on my github
 https://github.com/samank8121/next-graphql-server
