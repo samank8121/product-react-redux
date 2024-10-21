@@ -1,0 +1,122 @@
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 100px;
+  margin: 5px 0;
+
+  input {
+    width: 100%;
+    border: none;
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
+  .label {
+    margin-bottom: 6px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+    width: 100%;
+    height: 40px;
+    border: 1px solid #7b7b7b;
+    border-radius: 8px;
+    background: #ffffff;
+    position: relative;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    font-size: 14px;
+    font-weight: 500;
+
+    input {
+      width: 100%;
+      border: none;
+      background: #ffffff;
+      color: black;
+
+      &:focus-visible {
+        outline-width: 0px;
+        outline: none;
+      }
+    }
+
+    &.filled {
+      color: #333333;
+
+      &::placeholder {
+        color: #999999;
+      }
+    }
+
+    &.disabled {
+      background: #f5f5f5;
+      color: #999999;
+    }
+
+    .innerPlaceholder {
+      font-size: 14px;
+      font-weight: 500;
+      color: #999999;
+      transition-property: transform, font-size, line-height;
+      transition-duration: 300ms;
+      transition-timing-function: ease-in-out;
+      pointer-events: none;
+      position: absolute;
+      z-index: 1;
+    }
+  }
+
+  .prefix,
+  .icon {
+    margin-right: 8px;
+  }
+
+  .hint {
+    margin-top: 6px;
+    color: #999999;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  &.error {
+    .input {
+      border-color: #f04438;
+    }
+
+    .hint {
+      margin-top: 6px;
+      color: #f04438;
+    }
+  }
+
+  &.hasInnerPlaceholder {
+    .input {
+      height: 64px;
+
+      &:hover {
+        cursor: text;
+      }
+
+      &:focus-within .innerPlaceholder,
+      input:not(:placeholder-shown) + .innerPlaceholder {
+        font-size: 12px;
+        font-weight: 500;
+        transform: translateY(-14px);
+      }
+
+      input {
+        bottom: 7px;
+        position: absolute;
+        width: calc(100% - 20px);
+        z-index: 0;
+      }
+    }
+  }
+}

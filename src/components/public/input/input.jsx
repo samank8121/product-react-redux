@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import React, { forwardRef, useId, useRef } from 'react';
 
-import styles from './input.module.css';
+import styles from './input.module.scss';
 
 const Input = forwardRef(
   (

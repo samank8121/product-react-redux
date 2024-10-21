@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './page.module.css';
+import styles from './page.module.scss';
 import Input from '@/components/public/input/input';
 import Button from '@/components/public/button/button';
 import request from 'graphql-request';
