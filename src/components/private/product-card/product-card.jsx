@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import React from 'react';
 import styles from './product-card.module.scss';
 import { FiStar } from 'react-icons/fi';
-// import IncreaseDecrease from '@/components/increase-decrease/increase-decrease';
+import IncreaseDecrease from '@/components/public/increase-decrease/increase-decrease';
 import { euro } from '@/shared/constant';
 
 const ProductCard = ({
@@ -12,8 +12,6 @@ const ProductCard = ({
   className,
   onChange,
 }) => {
-  // const t = useTranslations('Product');
-  // const locale = useLocale();
   const onChangeProduct = (count) => {
     if (onChange) {
       onChange(count);
@@ -44,13 +42,12 @@ const ProductCard = ({
         </a>
         <div className={styles.content}>
           {price !== 0 ? (
-            // <IncreaseDecrease
-            //   className={styles.add}
-            //   value={value}
-            //   addBtnText={t('add')}
-            //   onChange={onChangeProduct}
-            // />
-            <>{value}</>
+            <IncreaseDecrease
+              className={styles.add}
+              value={value}
+              addBtnText="Add"
+              onChange={onChangeProduct}
+            />
           ) : (
             <div className={styles.add} />
           )}

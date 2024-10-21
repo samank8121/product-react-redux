@@ -1,10 +1,15 @@
 import styles from './App.module.scss';
-import ProductList from '@/components/private/product-list/product-list';
+import { Routes, Route } from 'react-router-dom';
+import Products from '@/pages/products';
+import Login from '@/pages/login';
 
 function App() {
   return (
     <div className={styles.App}>
-      <ProductList/>
+      <Routes>
+        <Route path='/' element={<Products />} />
+        <Route path='/login' element={<Login />} />
+      </Routes>
     </div>
   );
 }

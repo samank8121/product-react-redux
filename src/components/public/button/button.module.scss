@@ -1,0 +1,159 @@
+.button {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  gap: 10px;
+  position: relative;
+
+  @media (min-width: 1024px) {
+    &:hover {
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  &:active,
+  &:disabled,
+  &[disabled] {
+    box-shadow: none;
+  }
+
+  &:disabled,
+  &[disabled] {
+    cursor: not-allowed;
+  }
+
+  &-variant-filled {
+    background: var(--primary-500);
+    color: #fff;
+
+    &:active {
+      background: var(--primary-500);
+    }
+
+    &:disabled,
+    &[disabled] {
+      background: #e0e0e0;
+      color: var(--primary-700);
+    }
+  }
+
+  &-variant-outlined {
+    border: 1px solid var(--primary-500);
+    color: #007bff;
+    background-color: #fff;
+
+    &:active {
+      color: var(--primary-500);
+      border-color: var(--primary-500);
+    }
+
+    &:disabled,
+    &[disabled] {
+      color: #bdbdbd;
+      border-color: #eeeeee;
+    }
+  }
+
+  &-variant-elevated {
+    background: #e0f7fa;
+    color: var(--primary-500);
+
+    &:active {
+      color: var(--primary-400);
+    }
+  }
+
+  &-size-sm {
+    font-size: 14px;
+    line-height: 24px;
+    padding-inline-start: 14px;
+    padding-inline-end: 14px;
+    height: 36px;
+
+    &.only-icon {
+      height: 28px;
+    }
+  }
+
+  &-size-m {
+    font-size: 14px;
+    line-height: 24px;
+    padding-inline-start: 16px;
+    padding-inline-end: 16px;
+    height: 40px;
+
+    &.only-icon {
+      height: 32px;
+    }
+  }
+
+  &-size-l {
+    font-size: 15px;
+    line-height: 24px;
+    padding-inline-start: 18px;
+    padding-inline-end: 18px;
+    height: 44px;
+
+    &.only-icon {
+      height: 36px;
+    }
+  }
+
+  &-size-xl {
+    font-size: 16px;
+    line-height: 26px;
+    padding-inline-start: 24px;
+    padding-inline-end: 24px;
+    height: 50px;
+
+    &.only-icon {
+      height: 42px;
+    }
+  }
+
+  &.loading {
+    background: #bbdefb;
+    color: var(--primary-500);
+    padding-inline-end: 50px;
+
+    svg {
+      animation: rotation 1s infinite linear;
+      height: 29px;
+      width: 29px;
+    }
+
+    .icon {
+      position: absolute;
+      right: 14px;
+    }
+  }
+
+  .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.only-icon {
+  border-radius: 2px;
+}
