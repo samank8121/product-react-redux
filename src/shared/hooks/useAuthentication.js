@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 export const useAuthentication = () => {
   const navigate = useNavigate();
-  const auth = useSelector((state) => state.authSlice.auth);
+  const { auth } = useSelector((state) => state.authSlice);
   const isAuthenticated = () => {
     if (auth && auth.token) {
       return true;
@@ -12,8 +12,7 @@ export const useAuthentication = () => {
     }
   };
   const getHeader = (token) => {
-    if(token)
-    {
+    if (token) {
       return {
         Authorization: `Bearer ${token}`,
       };

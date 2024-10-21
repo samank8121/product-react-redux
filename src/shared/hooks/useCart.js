@@ -7,7 +7,7 @@ import { changeCart, fetchCart  } from '@/shared/redux/slices/cartSlice';
 export const useCart = () => {
   const { getHeader } = useAuthentication();
   const dispatch = useDispatch();
-  const cart = useSelector((state) => state.cartSlice.cart);
+  const { cart, loading, error } = useSelector((state) => state.cartSlice);
   const changeProduct = async (productid, value) => {
     const headers = getHeader();
     await request(
@@ -28,5 +28,5 @@ export const useCart = () => {
     } else return 0;
   };
 
-  return { changeProduct, getProductCount };
+  return { changeProduct, getProductCount, loading, error };
 };

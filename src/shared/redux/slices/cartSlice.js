@@ -23,6 +23,8 @@ export const fetchCart = createAsyncThunk('cart/fetchCart', async (headers) => {
 
 const initialState = {
   cart: { products: {}, totalCount: 0 },
+  loading: false,
+  error: null,
 };
 
 const cartSlice = createSlice({
