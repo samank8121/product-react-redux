@@ -1,5 +1,17 @@
 import { gql } from "graphql-request";
 
+export type GetCartsType = {
+  carts: [{
+    cartProducts: [{
+      product: {
+        id: number,
+        caption:string,
+        price:number,
+      }
+      productCount:number,
+    }]
+  }]
+};
 export const GET_CARTS = gql`      
   query Carts {
     carts {

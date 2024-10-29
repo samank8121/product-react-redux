@@ -5,11 +5,12 @@ import { GET_PRODUCTS } from '@/shared/graphql/products';
 import { useCart } from '@/shared/hooks/useCart';
 import { useAuthentication } from '@/shared/hooks/useAuthentication';
 import request from 'graphql-request';
+import { ProductType } from '@/types/ProductType';
 
 const ProductList = () => {
   const { changeProduct, getProductCount } = useCart();
   const { isAuthenticated } = useAuthentication();
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<ProductType[]>();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -26,7 +27,7 @@ const ProductList = () => {
 
     fetchProducts();
   }, []);
-  const onChangeProduct = (productid, count) => {
+  const onChangeProduct = (productid: number, count: number) => {
     changeProduct(productid, count);
   };
   return (

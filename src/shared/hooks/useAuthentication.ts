@@ -1,9 +1,13 @@
-import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { useAppSelector } from '@/shared/redux/hooks';
+
+export type Header = {
+  Authorization: string;
+};
 
 export const useAuthentication = () => {
   const navigate = useNavigate();
-  const { auth } = useSelector((state) => state.authSlice);
+  const { auth } = useAppSelector((state) => state.authSlice);
   const isAuthenticated = () => {
     if (auth && auth.token) {
       return true;
@@ -11,7 +15,7 @@ export const useAuthentication = () => {
       navigate('/login');
     }
   };
-  const getHeader = (token) => {
+  const getHeader = (token?:string):Header=> {
     if (token) {
       return {
         Authorization: `Bearer ${token}`,

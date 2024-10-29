@@ -1,9 +1,33 @@
 import clsx from 'clsx';
-import React, { forwardRef, useId, useRef } from 'react';
+import React, { ChangeEvent, forwardRef, useId, useRef } from 'react';
 
 import styles from './input.module.scss';
 
-const Input = forwardRef(
+type Props = {
+  label?: string;
+  icon?: React.ReactNode;
+  prefix?: string;
+  hint?: string;
+  className?: string;
+  disabled?: boolean;
+  hasError?: boolean;
+  allowClear?: boolean;
+  value: string;
+  innerPlaceholder?: string;
+  placeholder?: string;
+  type?: string;
+  name?: string;
+  autoComplete?: string;
+  enterKeyHint?: React.InputHTMLAttributes<HTMLInputElement>['enterKeyHint'];
+  onChange: (event: ChangeEvent<HTMLInputElement>) => void;  
+  onPressEnter?: () => void;  
+} & (
+  | { placeholder: string; value: null }
+  | { placeholder?: string; value: string }
+);
+
+type InputProps = React.InputHTMLAttributes<HTMLInputElement> & Props;
+const Input = forwardRef<HTMLInputElement, InputProps>(
   (
     {
       label,

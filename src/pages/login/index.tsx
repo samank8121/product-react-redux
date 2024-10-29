@@ -5,17 +5,17 @@ import Button from '@/components/public/button/button';
 import request from 'graphql-request';
 import { LOGIN_MUTATION } from '@/shared/graphql/authentication';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 import { setUser } from '@/shared/redux/slices/authSlice';
 import { useAuthentication } from '@/shared/hooks/useAuthentication';
 import { fetchCart  } from '@/shared/redux/slices/cartSlice';
+import { useAppDispatch } from '@/shared/redux/hooks';
 
 export default function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [hasError, setHasError] = useState(false);
   const { getHeader } = useAuthentication();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const navigate  = useNavigate();
   const onLogin = async () => {
     const variables = { username, password };

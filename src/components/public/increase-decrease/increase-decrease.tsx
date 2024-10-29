@@ -6,7 +6,16 @@ import Button from '../button/button';
 
 import styles from './increase-decrease.module.scss';
 
-const IncreaseDecrease = ({
+type IncreaseDecreaseProps = {
+  value?: number;
+  addBtnText?: string;
+  maxValue?: number;
+  alternativeText?: string;
+  className?: string;
+  onChange?: (value: number) => void;
+};
+
+const IncreaseDecrease: React.FC<IncreaseDecreaseProps> = ({
   value = 0,
   addBtnText,
   maxValue = 999,
@@ -14,7 +23,7 @@ const IncreaseDecrease = ({
   onChange,
   className,
 }) => {
-  const onChanging = (newValue) => {
+  const onChanging = (newValue: number) => {
     if (newValue <= maxValue) {
       if (onChange) {
         onChange(newValue);

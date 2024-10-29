@@ -3,8 +3,23 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './button.module.scss';
 
+type Props = {
+  variant?: 'filled' | 'outlined' | 'elevated';
+  size?: 'sm' | 'm' | 'l' | 'xl';
+  icon?: React.ReactNode;
+  type?: 'button'|'submit'|'reset'
+  loading?: boolean;
+  loadingText?: string;
+  delay?: number;
+};
 
-const Button = React.forwardRef(
+export type ButtonProps = Omit<
+  React.ButtonHTMLAttributes<HTMLButtonElement>,
+  'value'
+> &
+  Props;
+
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
       variant = 'filled',
@@ -22,10 +37,10 @@ const Button = React.forwardRef(
     ref
   ) => {
     const [activeLoading, setActiveLoading] = useState(false);
-    const [timer, setTimer] = useState(null);
+    const [timer, setTimer] = useState<NodeJS.Timeout | null>(null);
 
 
-    const handleClick = (e) => {
+    const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
       if (loading) {
         e.preventDefault();
         return;

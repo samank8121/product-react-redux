@@ -1,18 +1,29 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import clsx from 'clsx';
-import React from 'react';
+import React, { FC } from 'react';
 import styles from './product-card.module.scss';
 import { FiStar } from 'react-icons/fi';
+import { ProductType } from '@/types/ProductType';
 import IncreaseDecrease from '@/components/public/increase-decrease/increase-decrease';
 import { euro } from '@/shared/constant';
 
-const ProductCard = ({
+interface ProductCardProps {
+  product: ProductType;
+  value?: number;
+  showAdd?: boolean;
+  enableDeleteAlert?: boolean;
+  showFav?: boolean;
+  className?: string;
+  onChange?: (value: number) => void;
+  onClick?: () => void;
+}
+const ProductCard: FC<ProductCardProps> = ({
   product: { caption, imageSrc, rate, price, discount, weight, slug },
   value,
   className,
   onChange,
 }) => {
-  const onChangeProduct = (count) => {
+  const onChangeProduct = (count: number) => {
     if (onChange) {
       onChange(count);
     }

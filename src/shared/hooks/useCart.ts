@@ -1,14 +1,15 @@
 import request from 'graphql-request';
 import { CHANGE_PRODUCT_OF_CART } from '@/shared/graphql/cart';
 import { useAuthentication } from '@/shared/hooks/useAuthentication';
-import { useDispatch, useSelector } from 'react-redux';
+
 import { changeCart, fetchCart  } from '@/shared/redux/slices/cartSlice';
+import { useAppDispatch, useAppSelector } from '@/shared/redux/hooks';
 
 export const useCart = () => {
   const { getHeader } = useAuthentication();
-  const dispatch = useDispatch();
-  const { cart, loading, error } = useSelector((state) => state.cartSlice);
-  const changeProduct = async (productid, value) => {
+  const dispatch = useAppDispatch();
+  const { cart, loading, error } = useAppSelector((state) => state.cartSlice);
+  const changeProduct = async (productid:number, value:number) => {
     const headers = getHeader();
     await request(
       process.env.REACT_APP_API_ADDRESS,
@@ -19,12 +20,12 @@ export const useCart = () => {
     dispatch(changeCart({ productId: productid, count: value }));
     dispatch(fetchCart(headers));
   };
-  const getProductCount = (productid) => { 
+  const getProductCount = (productid:number):number => { 
     if (cart && cart.products) {
       const result = Object.entries(cart.products).filter(
         (key) => key[0].toString() === productid.toString()
       );
-      return result && result.length > 0 ? result[0][1] : 0;
+      return result && result.length > 0 ? result[0][1] as number : 0;
     } else return 0;
   };
 
