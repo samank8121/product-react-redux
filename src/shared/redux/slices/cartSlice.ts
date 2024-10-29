@@ -4,24 +4,6 @@ import { GET_CARTS } from '@/shared/graphql/cart';
 import { Header } from '@/shared/hooks/useAuthentication';
 import { createAppSlice } from '../createAppSlice';
 
-// export const fetchCart = createAsyncThunk('cart/fetchCart', async (headers:Header) => {  
-//   const results = await request(
-//     process.env.REACT_APP_API_ADDRESS,
-//     GET_CARTS,
-//     {},
-//     headers
-//   );
-//   const products: { [key: string]: number } = {};
-//   let totalCount = 0;
-//   results.carts.forEach((c:any) => {
-//     c.cartProducts.forEach((cp:any) => {
-//       const { id } = cp.product;
-//       products[id] = cp.productCount;
-//       totalCount += cp.productCount;
-//     });
-//   });
-//   return { products, totalCount };
-// });
 type CartInitialType = {
   cart: { products: object, totalCount: number },
   loading: boolean,
@@ -37,7 +19,7 @@ const cartSlice = createAppSlice({
   name: 'cart',
   initialState,
   reducers: (create) => ({
-    changeCart: create.reducer((state, action:PayloadAction<{productId:any, count:number}>) => {
+    changeCart: create.reducer((state, action:PayloadAction<{productId:number, count:number}>) => {
       const { productId, count } = action.payload;
       let products = { [productId]: count };
       let totalCount = 1;
@@ -85,21 +67,6 @@ const cartSlice = createAppSlice({
       },
     ),
   }),
-  // extraReducers: (builder) => {
-  //   builder
-  //     .addCase(fetchCart.pending, (state) => {
-  //       state.loading = true;
-  //       state.error = null;
-  //     })
-  //     .addCase(fetchCart.fulfilled, (state, action) => {
-  //       state.cart = action.payload;
-  //       state.loading = false;
-  //     })
-  //     .addCase(fetchCart.rejected, (state, action) => {
-  //       state.loading = false;
-  //       state.error = action.error.message??'An unknown error occurred';
-  //     });
-  // },
 });
 
 export const { changeCart, fetchCart } = cartSlice.actions;

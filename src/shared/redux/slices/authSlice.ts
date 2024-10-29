@@ -1,10 +1,10 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createAppSlice } from "../createAppSlice";
 
 const initialState = {
   auth: { user: {}, token:'' },
 };
 
-const authSlice = createSlice({
+const authSlice = createAppSlice({
   name: 'auth',
   initialState,
   reducers: {
