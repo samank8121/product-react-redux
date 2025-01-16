@@ -1,8 +1,8 @@
 import { PayloadAction } from '@reduxjs/toolkit';
 import request from 'graphql-request';
 import { GET_CARTS } from '@/shared/graphql/cart';
-import { Header } from '@/shared/hooks/useAuthentication';
-import { createAppSlice } from '../createAppSlice';
+import { Header } from '@/shared/hooks/authentication';
+import { createAppSlice } from '../create-app-slice';
 
 type CartInitialType = {
   cart: { products: object, totalCount: number },

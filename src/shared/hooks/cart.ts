@@ -1,8 +1,8 @@
 import request from 'graphql-request';
 import { CHANGE_PRODUCT_OF_CART } from '@/shared/graphql/cart';
-import { useAuthentication } from '@/shared/hooks/useAuthentication';
+import { useAuthentication } from '@/shared/hooks/authentication';
 
-import { changeCart, fetchCart  } from '@/shared/redux/slices/cartSlice';
+import { changeCart, fetchCart  } from '@/shared/redux/slices/cart-slice';
 import { useAppDispatch, useAppSelector } from '@/shared/redux/hooks';
 
 export const useCart = () => {

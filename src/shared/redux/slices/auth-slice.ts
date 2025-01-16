@@ -1,4 +1,4 @@
-import { createAppSlice } from "../createAppSlice";
+import { createAppSlice } from "../create-app-slice";
 
 const initialState = {
   auth: { user: {}, token:'' },

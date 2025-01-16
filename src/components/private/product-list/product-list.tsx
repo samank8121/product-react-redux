@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import ProductCard from '@/components/private/product-card/product-card';
 import styles from './product-list.module.scss';
 import { GET_PRODUCTS } from '@/shared/graphql/products';
-import { useCart } from '@/shared/hooks/useCart';
-import { useAuthentication } from '@/shared/hooks/useAuthentication';
+import { useCart } from '@/shared/hooks/cart';
+import { useAuthentication } from '@/shared/hooks/authentication';
 import request from 'graphql-request';
-import { ProductType } from '@/types/ProductType';
+import { ProductType } from '@/types/product-type';
 
 const ProductList = () => {
   const { changeProduct, getProductCount } = useCart();

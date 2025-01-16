@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import React, { FC } from 'react';
 import styles from './product-card.module.scss';
 import { FiStar } from 'react-icons/fi';
-import { ProductType } from '@/types/ProductType';
+import { ProductType } from '@/types/product-type';
 import IncreaseDecrease from '@/components/public/increase-decrease/increase-decrease';
 import { euro } from '@/shared/constant';
 

@@ -5,9 +5,9 @@ import Button from '@/components/public/button/button';
 import request from 'graphql-request';
 import { LOGIN_MUTATION } from '@/shared/graphql/authentication';
 import { useNavigate } from 'react-router-dom';
-import { setUser } from '@/shared/redux/slices/authSlice';
-import { useAuthentication } from '@/shared/hooks/useAuthentication';
-import { fetchCart  } from '@/shared/redux/slices/cartSlice';
+import { setUser } from '@/shared/redux/slices/auth-slice';
+import { useAuthentication } from '@/shared/hooks/authentication';
+import { fetchCart  } from '@/shared/redux/slices/cart-slice';
 import { useAppDispatch } from '@/shared/redux/hooks';
 
 export default function Login() {
