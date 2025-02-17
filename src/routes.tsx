@@ -1,18 +1,24 @@
-import { useRoutes } from 'react-router-dom';
+import { createBrowserRouter } from 'react-router-dom';
 import Products from '@/pages/products';
 import Login from '@/pages/login';
 import Layout from '@/components/private/layout/layout';
+import NotFound from '@/components/private/page-not-found/page-not-found';
 
-export default function Routes() {
-  let element = useRoutes([
-    {
-      path: '/',
-      element: <Layout />,
-      children: [
-        { index: true, element: <Products /> },
-        { path: '/login', element: <Login /> },
-      ],
-    },
-  ]);
-  return element;
-}
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    errorElement: <NotFound />,
+    children: [
+      {
+        path: "/",
+        element: <Products />,
+      },
+      {
+        path: "/login",
+        element:  <Login />
+      },      
+    ]
+  } 
+]);
+export default router;

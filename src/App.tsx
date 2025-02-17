@@ -1,14 +1,12 @@
+import { RouterProvider } from 'react-router-dom';
 import styles from './App.module.scss';
-import { BrowserRouter } from 'react-router-dom';
 
-import Routes from './routes';
+import routes from './routes';
 
 function App() {
   return (
     <div className={styles.App}>
-      <BrowserRouter>
-        <Routes />
-      </BrowserRouter>
+      <RouterProvider router={routes}/>
     </div>
   );
 }
