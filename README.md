@@ -10,3 +10,6 @@ This project is a sample application built with React. It demonstrates how to di
 
 ## Backend
 For the backend, refer to this project on my GitHub: [Graphql Server](https://github.com/samank8121/next-graphql-server)
+
+## Author
+[Saman Kefayatpour](https://www.linkedin.com/in/samankefayatpour/)
